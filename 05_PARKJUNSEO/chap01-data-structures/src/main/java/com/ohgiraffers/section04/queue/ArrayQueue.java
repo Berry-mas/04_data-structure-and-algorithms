@@ -82,6 +82,7 @@ public class ArrayQueue<T> {
     // 큐의 크기가 부족하면 배열의 크기를 두 배로 확장 (원형 구조 유지)
     private void resize() {
         int newSize = queue.length * 2;
+
         @SuppressWarnings("unchecked")
         T[] newQueue = (T[]) new Object[newSize];
         // front부터 순서대로 새로운 배열에 복사
