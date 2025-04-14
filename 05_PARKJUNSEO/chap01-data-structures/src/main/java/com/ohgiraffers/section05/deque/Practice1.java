@@ -19,7 +19,7 @@ public class Practice1 {
 // =================================================================
 
     public String solution(Integer[] notes) {
-        Deque<Integer> deque = new LinkedList<>();
+        Deque<Balloon> deque = new LinkedList<>();
         
 
         return null;
