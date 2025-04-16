@@ -9,6 +9,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class E_BruteForceTests {
 
     static String input1, input2, input3;
