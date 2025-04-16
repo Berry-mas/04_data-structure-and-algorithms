@@ -14,7 +14,6 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class B_SelectionSortTests {
-
     private static int input1, input2;
     private static int[] act1, act2;
     private static int[] exp1, exp2;
@@ -32,7 +31,7 @@ class B_SelectionSortTests {
         exp2 = new int[]{47, 40, 38, 35, 33, 8};
     }
 
-    public static Stream<Arguments> provideSortAscendingSource() {
+    public static Stream<Arguments> provideAscendingSource() {
         return Stream.of(
                 Arguments.of(input1, act1, exp1),
                 Arguments.of(input2, act2, exp2)
@@ -40,12 +39,11 @@ class B_SelectionSortTests {
     }
 
     @DisplayName("선택 정렬 테스트")
-    @Timeout(value = 1000, unit = TimeUnit.MILLISECONDS)
+    @Timeout(value = 1000, unit= TimeUnit.MILLISECONDS)
     @ParameterizedTest
-    @MethodSource("provideSortAscendingSource")
-    public void selectionSortAscending(int length, int[] actual, int[] exp) {
-        B_SelectionSort.solution(length, actual);
-
-
+    @MethodSource("provideAscendingSource")
+    public void selectionSortAscending(int length, int[] acutal, int[] exp) {
+        B_SelectionSort.solution(length, acutal);
+        Assertions.assertArrayEquals(exp, acutal);
     }
 }

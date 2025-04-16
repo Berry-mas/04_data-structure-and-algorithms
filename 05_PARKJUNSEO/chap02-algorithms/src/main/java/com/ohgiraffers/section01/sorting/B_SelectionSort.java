@@ -37,8 +37,10 @@ public class B_SelectionSort {
      *  예시 출력 2
      *    - 64 42 34 29 28 12
      * */
+
     public static void main(String[] args) {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
 
             int length = Integer.parseInt(br.readLine());
 
@@ -48,27 +50,26 @@ public class B_SelectionSort {
             // 알고리즘 실행
             solution(length, arr);
 
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public static void solution(int length, int[] arr) {
 
-        for (int i = 0; i < arr.length - 1; i++) {
-            System.out.println((i+1) + "번째 : " + Arrays.toString(arr));
-            int MaxIndex = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] > arr[MaxIndex]) {
-                    MaxIndex= j;
+        for(int i = 0; i < arr.length - 1; i++) {
+            System.out.println((i + 1) + "번째 : " + Arrays.toString(arr));
+            int maxIndex = i;
+            for(int j = i + 1; j < arr.length; j++) {
+                if(arr[j] > arr[maxIndex]) {
+                    maxIndex = j;
                 }
             }
+
+            // 선택된 데이터(최대값)가 들어가야할 인덱스로 교환
             int temp = arr[i];
-            arr[i] = arr[MaxIndex];
-            arr[MaxIndex] = temp;
+            arr[i] = arr[maxIndex];
+            arr[maxIndex] = temp;
         }
     }
-
 }
