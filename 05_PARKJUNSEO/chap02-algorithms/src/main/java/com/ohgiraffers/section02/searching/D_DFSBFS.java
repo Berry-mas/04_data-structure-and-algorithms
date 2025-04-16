@@ -1,5 +1,7 @@
 package com.ohgiraffers.section02.searching;
 
+import org.w3c.dom.Node;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -33,8 +35,50 @@ public class D_DFSBFS {
             map[a][b] = map[b][a] =  1;
         }
 
+        sb = new StringBuilder();   // 거쳐가는 모든 내용을 기록하는 용도
 
-        return null;
+        dfs(start);
+
+
+        sb.append('\n');
+
+        /* 위의 호출에서 사용된 방문 배열을 reset */
+        visit = new boolean[node+1];
+
+        bfs(start);
+
+
+        return sb.toString();
+    }
+
+    static void bfs(int start) {
+
+        q.offer(start);
+        visit[start] = true;
+
+
+        while (!q.isEmpty()) {
+            start = q.poll();
+            sb.append(start).append(" ");
+            for(int i = 1; i<=node; i++) {
+                if(map[start][i] == 1 && !visit[i]) {
+                    q.offer(i);
+                    visit[i] = true;
+                }
+            }
+        }
+    }
+
+    static void dfs(int start) {
+
+        visit[start] = true;
+        sb.append(start).append(" ");
+
+        for(int i = 1; i <= node; i++) {
+            if(map[start][i] == 1 && !visit[i]) {
+                dfs(i);
+            }
+        }
     }
 
 }
